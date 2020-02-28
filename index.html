@@ -13,9 +13,9 @@
         let x = Math.random();
         let select;
 
-        if (x > 0.6) {
+        if (x > 0.667) {
             select = 'ROCK';
-        } else if (x > 0.3) {
+        } else if (x > 0.333) {
             select = 'SCISSORS';
         } else {
             select = 'PAPER';
@@ -24,7 +24,7 @@
     }
 
     function playerInput(string) {
-        string = prompt('Choose Wisely', '');
+        string = prompt('ROCK/PAPER/SCISSORS?', '');
         return string.toUpperCase();
     }
 
@@ -63,9 +63,9 @@
                 compWin(); 
             // Otherwise Tie    
             } else {
-                result = 'Tie!';
-                compWin();
-                playWin();      
+                let tie = 'Tie! Another Round!'; 
+                console.log(tie);
+                return playRound(playerSelect, computerSelect);  
         }
         return console.log(result);
     }
@@ -86,7 +86,7 @@
         return comp;
     }
 
-    function game(player, comp) {
+    function game() {
         
         const totalGames = 5;
 
@@ -95,14 +95,14 @@
         }
     } 
 
-    let decideWinner = (a, b) => 
+    let decideWinner = (a, b) => {
         (play > comp) ? 
-        console.log("You Win!") :
-        console.log("You Lose!");
-
+        alert("Congrats! You Win The Game!!") :
+        alert('You Lose!! Please Try Again!!');
+    }
 
     game();
-    decideWinner();
+    decideWinner(play, comp);
 
 
 </script>
