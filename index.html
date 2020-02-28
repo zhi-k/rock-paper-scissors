@@ -14,21 +14,59 @@
         let select;
 
         if (x > 0.6) {
-            select = 'Rock';
+            select = 'ROCK';
         } else if (x > 0.3) {
-            select = 'Scissors';
+            select = 'SCISSORS';
         } else {
-            select = 'Paper';
+            select = 'PAPER';
         }
         return select;
     }
 
-    function rockPaperScissors(playerSelect, computerSelect) {
+    function playRound(playerSelect, computerSelect) {
+        let result;
+            //check if player typed in correct word
+            let allowedWords = ['ROCK', 'PAPER', 'SCISSORS']
+            let cond;
+            for (let i=0; i < allowedWords.length; i++){
+                if(allowedWords[i].indexOf(playerSelect) != -1) {
+                    cond = true;
+                }
+            }
+            if (cond == true) {  
+            // Scenario player win
+            if (playerSelect == 'ROCK' && computerSelect == 'SCISSORS') {
+                result = 'You Win! Rock beats Scissors';
+            } else if (playerSelect == 'PAPER' && computerSelect == 'ROCK') {
+                result = 'You Win! Paper beats Rock';
+            } else if (playerSelect == 'SCISSORS' && computerSelect == 'PAPER') {
+                result = 'You Win! Scissors beats Paper';
+            // Scenario player lose
+            } else if (playerSelect == 'ROCK' && computerSelect == 'PAPER') {
+                result = 'You Lose! Paper beats Rock'; 
+            } else if (playerSelect == 'PAPER' && computerSelect == 'SCISSOR') {
+                result = 'You Lose! Scissors beats Paper'; 
+            } else if (playerSelect == 'SCISSORS' && computerSelect == 'ROCK') {
+                result = 'You Lose! Rock beats Scissors'; 
+            // Otherwise Tie    
+            } else {
+                result = 'Tie!';      
+        }
+        return result;
+    }
+    console.log('Please type either rock/scissors/paper!');
+    playerInput();
+    }        
 
+    function playerInput(string) {
+        string = prompt('Choose Wisely', '');
+        return string.toUpperCase();
     }
 
-
-
+const playerSelection = playerInput();
+const computerSelection = computerPlay();
+console.log(computerSelection);
+console.log(playRound(playerSelection, computerSelection));
 
 
 </script>
