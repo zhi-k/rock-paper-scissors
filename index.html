@@ -40,6 +40,7 @@
                 cond = true;
              }
         }
+        
             if (cond == true) {  
             // Scenario player win
             if (playerSelect == 'ROCK' && computerSelect == 'SCISSORS') {
@@ -70,7 +71,7 @@
         return console.log(result);
     }
     console.log('Please type either rock/scissors/paper!');
-    playerInput();
+    playRound(playerSelect, computerSelect);
     }        
 
     let play = 0;
@@ -96,7 +97,7 @@
     } 
 
     let decideWinner = (a, b) => {
-        (play > comp) ? 
+        (a > b) ? 
         alert("Congrats! You Win The Game!!") :
         alert('You Lose!! Please Try Again!!');
     }
