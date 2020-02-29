@@ -10,12 +10,12 @@
 </body>
 <script>
     function computerPlay() {
-        let x = Math.random();
+        let x = ( (Math.random() * 100) + 1);
         let select;
 
-        if (x > 0.667) {
+        if (x > 65) {
             select = 'ROCK';
-        } else if (x > 0.333) {
+        } else if (x > 35) {
             select = 'SCISSORS';
         } else {
             select = 'PAPER';
@@ -24,7 +24,7 @@
     }
 
     function playerInput(string) {
-        string = prompt('ROCK/PAPER/SCISSORS?', '');
+        string = prompt('ROCK/PAPER/SCISSORS?');
         return string.toUpperCase();
     }
 
@@ -70,8 +70,8 @@
         }
         return console.log(result);
     }
-    console.log('Please type either rock/scissors/paper!');
-    playRound(playerSelect, computerSelect);
+    alert('Please type either rock/scissors/paper!');
+    playRound();
     }        
 
     let play = 0;
